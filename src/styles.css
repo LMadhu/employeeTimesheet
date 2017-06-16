@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #f2f4f4 !important;
+}
+.navbar-brand {
+    vertical-align: super !important;
+}
+.navbar{
+    display: inline-block !important;
+}
+.navbar-nav>li>a {
+    color: #fff !important;
+}
+.navbar-nav>li {
+    text-align: center !important;
+}
+.navbar-header {
+    padding-left: 4% !important;
+}
+.navbar-right {
+    padding-right: 4% !important;
+}
+.navbar-default{
+    width:100% !important;
+}
+.navbar-inverse {
+    background: #4f5151 !important; /* Old Browsers */
+    background: -webkit-linear-gradient(bottom,#4f5151,#7b8080) !important; /*Safari 5.1-6*/
+    background: -o-linear-gradient(bottom,#4f5151,#7b8080) !important; /*Opera 11.1-12*/
+    background: -moz-linear-gradient(bottom,#4f5151,#7b8080) !important; /*Fx 3.6-15*/
+    background: linear-gradient(to top, #4f5151, #7b8080) !important; /*Standard*/
+}
+nav.navbar.navbar-inverse.navbar-default {
+    margin-bottom: -6px !important;
+}
+.toolBar {
+    height: 40px;
+    width:100%;
+    position: fixed;
+    background: #a7acac;
+    color:#fff;
+    vertical-align: middle;
+    /*margin-top: 50px;*/
+    padding-top:10px;
+}
+.toolStyle {
+    color:#000;
+}
+.toolbarClass {
+    border-style:solid;
+    border-width: 1px;
+    padding: 2px 6px 2px 6px;
+}
+.button {
+    float: right;
+}
+.btn-success {
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #fff !important;
+}
+
+.projectAdd {
+    margin-top: 60px;
+    border: 1px solid gainsboro;
+    width: 22%;
+    box-sizing: border-box;
+    display: inline-block;
+    background: #fff;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+
+#custom-search-input {
+    margin:0;
+    margin-top: 5px;
+    margin-left: 0;
+    padding: 0;
+}
+#custom-search-input .search {
+    width: 100%;
+}
+#custom-search-input i{
+    font-size: 10px;
+    font-style: normal !important;
+}
+
+.panel-body {
+    background: #f2f4f4 !important;
+    overflow: hidden;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+
