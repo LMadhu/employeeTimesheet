@@ -2,6 +2,9 @@
 body {
     background-color: #f2f4f4 !important;
 }
+header {
+    position: relative;
+}
 .navbar-brand {
     vertical-align: super !important;
 }
@@ -36,7 +39,6 @@ nav.navbar.navbar-inverse.navbar-default {
 .toolBar {
     height: 40px;
     width:100%;
-    position: fixed;
     background: #a7acac;
     color:#fff;
     vertical-align: middle;
@@ -61,7 +63,6 @@ nav.navbar.navbar-inverse.navbar-default {
 }
 
 .projectAdd {
-    margin-top: 60px;
     border: 1px solid gainsboro;
     width: 22%;
     box-sizing: border-box;
@@ -70,8 +71,18 @@ nav.navbar.navbar-inverse.navbar-default {
     border-radius: 5px;
     padding: 4px;
 }
-
-
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+/*.affix + .container-fluid {
+    padding-top: 70px;
+}*/
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
 #custom-search-input {
     margin:0;
     margin-top: 5px;
