@@ -1,0 +1,124 @@
+<div>
+<div *ngIf="isSessionValid();else elseBlock">
+  <nav class="navbar navbar-inverse navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="" alt="[Logo]"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#track">Track</a></li>
+            <li><a href="#bill"> Bill </a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <strong>Welcome, Username</strong>
+                    </a>
+                </li>
+                <li><a href="#settings"> Settings</a></li>
+                <li><a href="#login">Log Off</a></li>
+            </ul>
+
+        </div>
+</nav>
+  <!--<form name="myForm">-->
+    <div class="toolBar" data-spy="affix" data-offset-top="40">
+      <div class="container">
+        <div class="toolStyle">
+          <strong>Timesheet for </strong><span class="toolbarClass">username</span>&nbsp; &nbsp;
+          <strong>for Week of </strong>
+          <span>
+            <p-calendar [(ngModel)]="date6" placeholder="Select Week Start Date" 
+            [yearNavigator]="true" yearRange="2000:2030" [showIcon]="true"></p-calendar>
+          </span>
+          <b class="button">
+            <button class="btn-success"> Save All</button>
+            <button class="btn-success">Submit All</button>
+          </b>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="projectAdd col-sm-4">
+          <strong>Add a project or task</strong>
+          <div id="custom-search-input">
+            <!--<div class="col-md-12">-->
+            <p-autoComplete [(ngModel)]="project" [suggestions]="filteredProjects" 
+            (completeMethod)="projectFilter($event)" field="pName" [size]="25"
+            placeholder="Enter project name" [minLength]="1"></p-autoComplete>
+            
+            <span (mouseenter)="pDetails.show($event)"><strong>Project</strong>: {{project ? project.pName||project : 'none'}}</span>
+            
+            <p-overlayPanel #pDetails [showCloseIcon]="true" [dismissable]="false">
+              <div class = "panel panel-default">
+                <div class="panel-heading"> <strong>{{project ? project.pName||project : 'none'}}</strong> </div>
+                <div class="panel-body">
+                  <strong>Engagement Manager</strong><br/>
+                  {{project ? project.pEngagementManager||project : 'none'}}<br/><br/>
+                  
+                  <strong>Project Manager</strong><br/>
+                  {{project ? project.pManager||project : 'none'}}<br/><br/>
+                  
+                  <strong>Description</strong><br/>
+                  {{project ? project.pDescription||project : 'none'}}<br/><br/>
+                  
+                  <strong>Requirements</strong><br/>
+                  {{project ? project.pRequirements||project : 'none'}}<br/>
+                
+                </div>
+              </div>
+            </p-overlayPanel>
+          </div>
+        </div>
+        
+        <div class="col-sm-8">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br/><br/>
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>BILLABLE</strong></div>
+        <div class="panel-body">
+          <strong>{{project ? project.pName||project : 'none'}}</strong><hr>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>NON-BILLABLE</strong>
+        </div>
+        <div class="panel-body">
+          <strong>Time Off</strong><hr>
+          <span>FMLA</span><hr>
+          <span>Illness</span><hr>
+          <span>Jury Duty</span><hr>
+          <span>Personal Duty</span><hr>
+          <span>Vacation</span>
+        </div>
+      </div>
+    </div>
+  <!--</form>-->
+</div>
+
+<ng-template #elseBlock>
+  <a routerLink ="/login"></a>
+</ng-template>
+
+</div>

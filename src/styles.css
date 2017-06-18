@@ -112,3 +112,127 @@ hr {
     border-width: 1px;
 } 
 
+.backgroundImage {
+    background-repeat: no-repeat;
+    background-position: 100%;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+.logo {
+    padding-top: 5px;
+    width: 25%;
+    /*width: 213px;*/
+    height: 36px;
+    margin: 30px auto;
+}
+
+.login-block {
+    width: 35%;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 8px solid #3b453f !important;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.8);
+    padding: 5px;
+    border: 1px solid;
+    border-top-color: rgba(255,255,255,.4);
+    border-left-color: rgba(255,255,255,.4);
+    border-bottom-color: rgba(60,60,60,.4);
+    border-right-color: rgba(60,60,60,.4);
+}
+
+.adminLogo {
+    padding-left: 25%;
+}
+
+.login-block h1 {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0;
+    display: block;
+    background: #ccc;
+    padding: 4px;
+    color: #4b4c4d;
+    border-radius:5px;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-block input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+.login-block input#username {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+    background-size: 16px 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.login-block input#username:focus {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.login-block input#password {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+    background-size: 16px 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.login-block input#password:focus {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+}
+
+.login-block input:active, .login-block input:focus {
+    border: 1px solid #3b453f;
+}
+
+.login-block button {
+    width: 100%;
+    height: 40px;
+    background: #3b453f;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #3b453f;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-block button:hover {
+    background: #3b453f;
+}
+
+.fusion-footer-copyright-area {
+    background-color: #61a6b8;
+    border-top: 1px solid #4b4c4d;
+    text-align: center;
+}
+
+.fusion-copyright-notice {
+    color: #d8d8d8;
+    font-size: 11px;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding-left: 300px;
+}
+.fusion-copyright-notice a {
+    color:#fff !important;
+    font-size: 11px;
+}
