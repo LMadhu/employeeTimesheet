@@ -42,8 +42,8 @@ nav.navbar.navbar-inverse.navbar-default {
     background: #a7acac;
     color:#fff;
     vertical-align: middle;
-    /*margin-top: 50px;*/
     padding-top:10px;
+    margin-bottom: 5px;
 }
 .toolStyle {
     color:#000;
