@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AutoCompleteModule } from 'primeng/primeng';
+import { CalendarModule } from 'primeng/primeng';
 import { OverlayPanelModule } from 'primeng/primeng';
 import { DataTableModule } from 'primeng/primeng';
 import { SelectItem } from 'primeng/primeng';
@@ -22,12 +24,14 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    CalendarModule,
     ReactiveFormsModule,
     AutoCompleteModule,
     OverlayPanelModule,
     DataTableModule,
     SharedModule,
-    MultiSelectModule
+    MultiSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [ProjectService],
   bootstrap: [AppComponent]

@@ -35,8 +35,9 @@
     <div class="toolStyle">
       <strong>Timesheet for </strong><span class="toolbarClass">username</span>&nbsp; &nbsp;
       <strong>for Week of </strong>
-      <span class="toolbarClass">
-        <input type="date" id="weekDate" onenter="getWeekDays($event)">
+      <span>
+        <p-calendar [(ngModel)]="date6" placeholder="Select Week Start Date" 
+        [yearNavigator]="true" yearRange="2000:2030" [showIcon]="true"></p-calendar>
       </span>
       <b class="button">
         <button class="btn-success"> Save All</button>
@@ -114,9 +115,3 @@
      </div> 
   </div>
 </div>
-
-<script>
-            $(document).ready(function () {          
-                $(".toolbar").affix({ offset: { top: $("nav").outerHeight(true) } });
-            });
-        </script>

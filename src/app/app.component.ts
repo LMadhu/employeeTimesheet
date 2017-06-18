@@ -15,6 +15,7 @@ export class AppComponent {
     projects: any[];
     weekList: any[];
     filteredProjects: any[];
+    date6: Date;
 
     constructor(private projectService: ProjectService) { 
 
