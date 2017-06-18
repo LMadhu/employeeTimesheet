@@ -5,6 +5,7 @@ import { OverlayPanelModule } from 'primeng/primeng';
 import { DataTableModule } from 'primeng/primeng';
 import { SelectItem } from 'primeng/primeng';
 import { MultiSelectModule } from 'primeng/primeng';
+import { SharedModule } from 'primeng/primeng';
 import { ProjectService } from './app.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
     AutoCompleteModule,
     OverlayPanelModule,
     DataTableModule,
+    SharedModule,
     MultiSelectModule
   ],
   providers: [ProjectService],

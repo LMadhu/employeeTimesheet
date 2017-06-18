@@ -1,3 +1,4 @@
+<header>
 <nav class="navbar navbar-inverse navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,12 +28,16 @@
 
         </div>
 </nav>
+</header>
 
-<div class="toolBar">
+<div class="toolBar" data-spy="affix" data-offset-top="40">
   <div class="container">
     <div class="toolStyle">
       <strong>Timesheet for </strong><span class="toolbarClass">username</span>&nbsp; &nbsp;
-      <strong>for Week of </strong><span class="toolbarClass">week</span>
+      <strong>for Week of </strong>
+      <span class="toolbarClass">
+        <input type="date" id="weekDate" onenter="getWeekDays($event)">
+      </span>
       <b class="button">
         <button class="btn-success"> Save All</button>
         <button class="btn-success">Submit All</button>
@@ -42,15 +47,16 @@
 </div>
 
 <div class="container">
-  <div class="projectAdd">
+  <div class="row">
+  <div class="projectAdd col-sm-4">
 		<strong>Add a project or task</strong>
       <div id="custom-search-input">
         <!--<div class="col-md-12">-->
           <p-autoComplete [(ngModel)]="project" [suggestions]="filteredProjects" 
           (completeMethod)="projectFilter($event)" field="pName" [size]="25"
           placeholder="Enter project name" [minLength]="1"></p-autoComplete>
-          <span (mouseenter)="pDetails.show($event)"><strong>Project</strong>: {{project ? project.pName||project : 'none'}}</span>
-          <p-overlayPanel #pDetails [showCloseIcon]="true" [dismissable]="false">
+          <span (mouseleave)="flag1=false" (mouseenter)="flag1=true"><strong>Project</strong>: {{project ? project.pName||project : 'none'}}</span>
+          <p-overlayPanel *ngIf="flag1" #pDetails [showCloseIcon]="true" [dismissable]="false">
             <div class = "panel panel-default">
               <div class="panel-heading"> <strong>{{project ? project.pName||project : 'none'}}</strong> </div>
               <div class="panel-body">
@@ -64,14 +70,28 @@
                 {{project ? project.pDescription||project : 'none'}}<br/><br/>
 
                 <strong>Requirements</strong><br/>
-                {{project ? project.pRequirements||project : 'none'}}<br/>
-                
+                <!--{{project ? project.pRequirements||project : 'none'}}<br/>-->
+                <!--<div *ngIf="project !== 'none' ">-->
+                <p *ngFor="let req of project.pRequirements">req<br/></p>
+                <!--</div>-->
               </div>
             </div>
           </p-overlayPanel>
         <!--</div>-->
       </div>
 	</div>
+  <div class="col-sm-8">
+    <table>
+      <tbody>
+        <tr>
+          <th>
+
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
  <br/><br/>
   <div class="panel panel-default">
     <div class="panel-heading"><strong>BILLABLE</strong></div>
@@ -94,3 +114,9 @@
      </div> 
   </div>
 </div>
+
+<script>
+            $(document).ready(function () {          
+                $(".toolbar").affix({ offset: { top: $("nav").outerHeight(true) } });
+            });
+        </script>
