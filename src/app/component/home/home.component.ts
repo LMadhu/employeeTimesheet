@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'app/app.service';
+import { UserService } from 'app/service/user.service';
+import { UserRole } from 'domain/userrole';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
 @Component({
@@ -12,6 +15,7 @@ import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 })
 export class HomeComponent implements OnInit {
   
+
   project: any;
   projects: any[];
   weekList: any[];
@@ -21,16 +25,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private userService: UserService,
     private storage: LocalStorageService,
     private projectService: ProjectService) { 
       
     }
   
   ngOnInit() {
-  //   if(this.storage.retrieve('isSessionValid') == false){
-  //   this.router.navigate(['/login']);
-  console.log("isSessionValid: "+this.storage.retrieve('isSessionValid'));
-  // }
+    console.log("isSessionValid: "+this.storage.retrieve('isSessionValid'));
   }
 
     
@@ -64,17 +66,39 @@ export class HomeComponent implements OnInit {
     var last = first + 6;
         
     weekList.push(first);
-    weekList.push(second);weekList.push(third);weekList.push(fourth);weekList.push(fifth);weekList.push(sixth);weekList.push(last);
+    weekList.push(second);
+    weekList.push(third);
+    weekList.push(fourth);
+    weekList.push(fifth);
+    weekList.push(sixth);
+    weekList.push(last);
     console.log(this.weekList);
     return weekList;
   }
 
   isSessionValid() {
-        if (this.storage.retrieve('isSessionValid')) {
-            return true;
-        } else {
-            return false;
-        }
+    if (this.storage.retrieve('isSessionValid')) {
+      return true;
+    } else {
+      return false;
     }
+  }
+
+  get user(): any {
+    return this.storage.retrieve('firstname');
+  }
+
+  get firstname(): any {
+    return this.storage.retrieve('firstname'); 
+  }
+  get lastname(): any {
+    return this.storage.retrieve('lastname'); 
+  }
+
+  logout() {
+    this.userService.purgeAuth();
+    this.storage.store('isSessionValid',false);
+    this.router.navigateByUrl('/login');
+  }
 
 }

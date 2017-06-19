@@ -88,7 +88,6 @@ export class LoginComponent implements OnInit {
 
     this.password = new FormControl();
 
-
     this.createForm();
 
   }
@@ -116,19 +115,26 @@ export class LoginComponent implements OnInit {
     this.loginErrorMessages = [];
     console.log("user name:" + this.userName);
     console.log("passwd:" + this.passwd);
-    this.loggedInUser = this.userRoles.filter(x => (x.userName === this.userName && x.passwd === this.passwd));
+
+    this.loggedInUser = this.userRoles.filter(
+      data => (
+        data.userName === this.userName && data.passwd === this.passwd
+        )
+    );
+
     if (this.loggedInUser[0]) {
       console.log("valid user");
-      console.log("username --->" + this.loggedInUser[0].userName);
-      console.log("password --->" + this.loggedInUser[0].passwd);
-      console.log("rolename --->" + this.loggedInUser[0].roleName);
+      console.log("username --->" + this.loggedInUser[0].firstName);
+      console.log("lastname --->" + this.loggedInUser[0].lastName);
       console.log(this.loggedInUser);
-      this.storage.store('username', this.loggedInUser[0].userName);
+      this.storage.store('firstname', this.loggedInUser[0].firstName);
+      this.storage.store('lastname', this.loggedInUser[0].lastName);
       console.log("session --->" + this.storage.retrieve('boundValue'));
       this.storage.store('taskOwner', this.loggedInUser[0].roleName);
       this.storage.store('isSessionValid',true);
       console.log("isSessionValid: "+this.storage.retrieve('isSessionValid'));
       this.loginErrorMessages = [];
+      
       this.userService.setAuth();
       this.router.navigate(['home']);
     } else {

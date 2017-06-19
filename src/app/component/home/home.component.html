@@ -20,11 +20,11 @@
           <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <strong>Welcome, Username</strong>
+                        <strong>Welcome,</strong>{{user}}
                     </a>
                 </li>
                 <li><a href="#settings"> Settings</a></li>
-                <li><a href="#login">Log Off</a></li>
+                <li><a (click)="logout()">Log Off</a></li>
             </ul>
 
         </div>
@@ -33,7 +33,7 @@
     <div class="toolBar" data-spy="affix" data-offset-top="40">
       <div class="container">
         <div class="toolStyle">
-          <strong>Timesheet for </strong><span class="toolbarClass">username</span>&nbsp; &nbsp;
+          <strong>Timesheet for </strong><span class="toolbarClass">{{firstname + lastname}}</span>&nbsp; &nbsp;
           <strong>for Week of </strong>
           <span>
             <p-calendar [(ngModel)]="date6" placeholder="Select Week Start Date" 
