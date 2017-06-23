@@ -123,22 +123,15 @@ export class LoginComponent implements OnInit {
     );
 
     if (this.loggedInUser[0]) {
-      console.log("valid user");
-      console.log("username --->" + this.loggedInUser[0].firstName);
-      console.log("lastname --->" + this.loggedInUser[0].lastName);
-      console.log(this.loggedInUser);
       this.storage.store('firstname', this.loggedInUser[0].firstName);
       this.storage.store('lastname', this.loggedInUser[0].lastName);
-      console.log("session --->" + this.storage.retrieve('boundValue'));
       this.storage.store('taskOwner', this.loggedInUser[0].roleName);
       this.storage.store('isSessionValid',true);
-      console.log("isSessionValid: "+this.storage.retrieve('isSessionValid'));
       this.loginErrorMessages = [];
       
       this.userService.setAuth();
       this.router.navigate(['home']);
     } else {
-      console.log("====INVALID USER CREDENTIALS=======");
       this.loginErrorMessages.push({ severity: 'error', summary: 'Login Error.', detail: 'Invalid username and/or password. Please provide valid credentials.' });
     }
   }
