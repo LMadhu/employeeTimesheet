@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import 'rxjs/add/operator/switchMap';
 
 import { UserService } from './service/user.service';
+import { Time } from 'domain/timesheet';
 
 
 @Component({

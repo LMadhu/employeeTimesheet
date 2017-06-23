@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <div *ngIf="requirements">
+    <tr *ngFor="let requirement of requirements">
+      <td>{{requirement}}</td>
+      <td>
+        <input class="week-cell" type="number" (input)="num1=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num2=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num3=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num4=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num5=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num6=$event.target.value" />
+        <input class="week-cell" type="number" (input)="num7=$event.target.value" />
+        <input (click)="addNumber()" [readonly]="true" [(ngModel)] = "total" />
+        <!--<input {{}}/>-->
+      </td>
+    </tr>
+  </div>
+</table>

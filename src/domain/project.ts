@@ -1,11 +1,7 @@
 export interface Project {
     pName?;
     pdescription?;
-    pRequirements:Requirements[];
+    pRequirements?;
     pManager?;
     pEngagementManager?;
-}
-
-export class Requirements {
-    task?;
 }

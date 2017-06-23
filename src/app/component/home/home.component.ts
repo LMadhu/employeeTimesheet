@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren } from '@angular/core';
 import { ProjectService } from 'app/app.service';
 import { UserService } from 'app/service/user.service';
 import { UserRole } from 'domain/userrole';
+import { Time } from 'domain/timesheet';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { TimeSheetComponent } from '../timesheet/timesheet.component';
+
 
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
@@ -14,12 +17,16 @@ import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
+  // @ViewChild ("timesheet") timesheet: TimeSheetComponent;
+
 
   project: any;
   projects: any[];
   weekList: any[];
   filteredProjects: any[];
+  requirements: any[];
+  selectedRequirements: string[];
+  startingValue: number;
   date6: Date;
 
   constructor(
@@ -30,6 +37,10 @@ export class HomeComponent implements OnInit {
     private projectService: ProjectService) { 
       
     }
+    
+    // ngAfterViewInit() {
+
+    // }
   
   ngOnInit() {
     console.log("isSessionValid: "+this.storage.retrieve('isSessionValid'));
@@ -53,27 +64,16 @@ export class HomeComponent implements OnInit {
     }
     return filtered;
   }
-  
-  getWeekDays(weekDate) {
-    let weekList : any[] = [];
-    var curr = weekDate;
-    var first = curr.getDate() - curr.getDay();
-    var second = first + 1;
-    var third = first + 2;
-    var fourth = first + 3;
-    var fifth = first + 4;
-    var sixth = first + 5;
-    var last = first + 6;
-        
-    weekList.push(first);
-    weekList.push(second);
-    weekList.push(third);
-    weekList.push(fourth);
-    weekList.push(fifth);
-    weekList.push(sixth);
-    weekList.push(last);
-    console.log(this.weekList);
-    return weekList;
+
+  addProject(event) {
+    if (!this.projects)
+      this.projects = [];
+    this.projects.push(event);
+    console.log(this.projects); 
+  }
+
+  generateArray(obj) {
+    return Object.keys(obj).map((key) => { return obj[key] });
   }
 
   isSessionValid() {

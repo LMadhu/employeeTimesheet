@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li><a href="#settings"> Settings</a></li>
-                <li><a (click)="logout()">Log Off</a></li>
+                <li><a (click)="logout()"><span style="cursor:pointer">Log Off</span></a></li>
             </ul>
 
         </div>
@@ -54,12 +54,13 @@
           <div id="custom-search-input">
             <!--<div class="col-md-12">-->
             <p-autoComplete [(ngModel)]="project" [suggestions]="filteredProjects" 
-            (completeMethod)="projectFilter($event)" field="pName" [size]="25"
+            (completeMethod)="projectFilter($event)" (onSelect)="addProject($event)" field="pName" [size]="25"
             placeholder="Enter project name" [minLength]="1"></p-autoComplete>
             
-            <span (mouseenter)="pDetails.show($event)"><strong>Project</strong>: {{project ? project.pName||project : 'none'}}</span>
+            <span (mouseenter)="pDetails.show($event)">
+              <strong>Project</strong>: {{project ? project.pName||project : 'none'}}</span>
             
-            <p-overlayPanel #pDetails [showCloseIcon]="true" [dismissable]="false">
+            <p-overlayPanel #pDetails [showCloseIcon]="true" [dismissable]="true">
               <div class = "panel panel-default">
                 <div class="panel-heading"> <strong>{{project ? project.pName||project : 'none'}}</strong> </div>
                 <div class="panel-body">
@@ -72,8 +73,20 @@
                   <strong>Description</strong><br/>
                   {{project ? project.pDescription||project : 'none'}}<br/><br/>
                   
+                  <!--<strong>Requirements</strong><br/>
+                  {{project ? project.pRequirements||project : 'none'}}<br/>-->
                   <strong>Requirements</strong><br/>
-                  {{project ? project.pRequirements||project : 'none'}}<br/>
+                  <label ng-repeat="pRequirement in project.pRequirements">
+                    <input type="checkbox" checklist-model="project.requirements" 
+                    checklist-value="pRequirement"> {{project? pRequirement||project:'none'}}
+                  </label>
+                <!--<div class="checkbox" ng-repeat="pRequirement in project">
+                  <label>
+                    <input type="checkbox" value="">
+                    <!--ng-repeat="project.pRequirements.task in project.pRequirements.tasks">-->
+                    <!--{{project? project.pRequirements||project:'none' }}
+                  </label>
+                </div>-->
                 
                 </div>
               </div>
@@ -97,20 +110,20 @@
       <div class="panel panel-default">
         <div class="panel-heading"><strong>BILLABLE</strong></div>
         <div class="panel-body">
-          <strong>{{project ? project.pName||project : 'none'}}</strong><hr>
+          <div class="project-div" *ngFor="let item of projects">
+            <strong>{{ item.pName }}</strong>
+            <hr>
+            <app-timesheet [time]="selectedTime" [requirements]="item.pRequirements"></app-timesheet>
+          </div>
         </div>
       </div>
       
       <div class="panel panel-default">
-        <div class="panel-heading"><strong>NON-BILLABLE</strong>
-        </div>
+        <div class="panel-heading"><strong>NON-BILLABLE</strong></div>
         <div class="panel-body">
-          <strong>Time Off</strong><hr>
-          <span>FMLA</span><hr>
-          <span>Illness</span><hr>
-          <span>Jury Duty</span><hr>
-          <span>Personal Duty</span><hr>
-          <span>Vacation</span>
+          <strong>Time Off</strong>
+          <hr>
+          <app-timesheet [time]="selectedTime" [requirements]="['FMLA', 'Illness', 'Jury']"></app-timesheet>
         </div>
       </div>
     </div>

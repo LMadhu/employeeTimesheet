@@ -236,3 +236,25 @@ hr {
     color:#fff !important;
     font-size: 11px;
 }
+
+.ui-overlaypanel.ui-widget.ui-widget-content.ui-corner-all.ui-shadow {
+    top: 0px !important;
+    left: 250px !important;
+    min-width: 300px !important;
+}
+
+.panel-type {
+  display: inline-block;
+  width: 30%;
+}
+
+.week-box {
+  position: relative;
+  width: 75%;
+}
+
+.week-cell {
+  display: inline-block;
+  width: 70px;
+  margin-left: 20px;
+}

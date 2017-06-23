@@ -27,6 +27,7 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { AuthenticationComponent } from './component/authentication/authentication.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { TimeSheetComponent } from './component/timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FooterComponent } from './component/footer/footer.component';
     LogoutComponent,
     AuthenticationComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TimeSheetComponent
   ],
   imports: [
     BrowserModule,
